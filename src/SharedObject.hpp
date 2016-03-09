@@ -6,15 +6,16 @@
 template<typename T>
 class SharedObject : public NotCopyable {
 public:    
-    SharedObject(T& data_input);    
+	SharedObject(T& data_input) : data(data_input) {}
         
     class Accessor : public NotCopyable {
     public:    
 	
-        Accessor(SharedObject<T>& so_input);
-        ~Accessor();
+        Accessor(SharedObject<T>& so_input): so(so_input) {	so.claim(); }
+
+		~Accessor() { so.release(); }
         
-        T& access();
+		T& access() { return so; }
     private:
         SharedObject& so;
     };

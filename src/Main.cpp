@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "LockingSharedObject.hpp"
 
-template LockingSharedObject<int>;
-
 int main()
 {
 	printf("This is project SharedObjects");
