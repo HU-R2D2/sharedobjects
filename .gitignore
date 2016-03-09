@@ -2,7 +2,7 @@
 # Created by https://www.gitignore.io/api/c++,c,visualstudio,jetbrains,linux,osx,sublimetext,vim,windows
 
 ##Koen VisualStudio Project directory:
-SharedObjects_vsstudio/*.*
+SharedObjects_vsstudio/
 
 ### C++ ###
 # Compiled Object files
