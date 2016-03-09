@@ -5,7 +5,7 @@
 #include <mutex>
 
 template<typename T>
-class LockingSharedObject : public SharedObject {
+class LockingSharedObject : public SharedObject<T> {
 public:    
     LockingSharedObject(T& data_input);    
        
@@ -14,6 +14,7 @@ public:
 
 private:
 	std::mutex lock_object;
-	SharedObject::Accessor ac;
+	SharedObject<T>::Accessor ac;
 };
+
 #endif

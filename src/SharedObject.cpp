@@ -1,25 +1,27 @@
 #include "SharedObject.hpp"
 
-SharedObject::SharedObject(T& data_input):
+template<typename T>
+SharedObject<T>::SharedObject(T& data_input):
 data(data_input)
 {
 	
 }
 
-Accessor::Accessor(SharedObject<T>& so_input):
+template<typename T>
+SharedObject<T>::Accessor::Accessor(SharedObject<T>& so_input):
 so(so_input)
 {
 	so.claim();
 }
 
-Accessor::~Accessor()
+template<typename T>
+SharedObject<T>::Accessor::~Accessor()
 {
 	so.release();
-	
 }
 
-
-T& Accessor::access()
+template<typename T>
+T& SharedObject<T>::Accessor::access()
 {
 	so.claim();
 	
