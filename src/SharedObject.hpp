@@ -5,27 +5,28 @@
 
 template<typename T>
 class SharedObject : public NotCopyable {
-public:    
+public:
 	SharedObject(T& data_input) : data(data_input) {}
-        
-    class Accessor : public NotCopyable {
-    public:    
-	
-        Accessor(SharedObject<T>& so_input): so(so_input) {	so.claim(); }
+
+	class Accessor : public NotCopyable {
+	public:
+
+		Accessor(SharedObject<T>& so_input) : so(so_input) { so.claim(); }
 
 		~Accessor() { so.release(); }
-        
+
 		T& access() { return so; }
-    private:
-        SharedObject& so;
-    };
-	
-protected:    
-    T& data; // SharedData only accesible by Accessor
-    friend class Accessor;
-    
-    virtual void claim() {}
-    virtual void release() {}
+
+	private:
+		SharedObject& so;
+	};
+
+protected:
+	T& data; // SharedData only accesible by Accessor
+	friend class Accessor;
+
+	virtual void claim() {}
+	virtual void release() {}
 };
 
 #endif

@@ -6,14 +6,13 @@
 
 template<typename T>
 class LockingSharedObject : public SharedObject<T> {
-public:    
+public:
 	LockingSharedObject(T& data_input) :
-	SharedObject(data_input)
+		SharedObject(data_input)
 	{
-		SharedObject<T>::Accessor ac(data_input); //THIS IS NOT WORKING
 	}
-       
-	void claim() override 
+
+	void claim() override
 	{
 		lock_object.lock();
 	}
