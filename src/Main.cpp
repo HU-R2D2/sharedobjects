@@ -1,11 +1,13 @@
 #include <stdio.h>
-#include "SharedObjects.hpp"
+#include "LockingSharedObject.hpp"
 
 int main()
 {
 	printf("This is project SharedObjects");
 	
-	SharedObjects< int > theObject = SharedObjects< int >(42); 
+	LockingSharedObject< int > theQuestion = LockingSharedObject< int >(1); 
+	
+	LockingSharedObject< int > theAnswser = LockingSharedObject< int >(42); 
 	
 	printf("Initialized first shared object");
 	
