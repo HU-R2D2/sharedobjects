@@ -2,14 +2,13 @@
 #include <iostream>
 #include "LockingSharedObject.hpp"
 #include "LoggingSharedObject.hpp"
-#include <thread> 
+#include <thread>
 #include <sstream>
 #include <chrono>
 
 static int times = 1000 * 1000;
 
-void firstThread(SharedObject<int>& obj)
-{
+void firstThread(SharedObject<int>& obj){
 	for (int i = 0; i < times; ++i) {
 		Accessor<int> a(obj);
 		int& b = a.access();
@@ -21,8 +20,7 @@ void firstThread(SharedObject<int>& obj)
 	std::cout << ss.str();
 }
 
-void secondThread(SharedObject<int>& obj)
-{
+void secondThread(SharedObject<int>& obj){
 	for (int i = 0; i < times; ++i) {
 		Accessor<int> a(obj);
 		int& b = a.access();
@@ -35,11 +33,10 @@ void secondThread(SharedObject<int>& obj)
 }
 
 
-int main()
-{
+int main(){
 	std::cout << "This is project SharedObjects" << std::endl;
 	int a = 1;
-	LockingSharedObject<int> theQuestion(a);	
+	LockingSharedObject<int> theQuestion(a);
 
 	typedef std::chrono::microseconds t_stamp;
 
@@ -47,11 +44,11 @@ int main()
 
 	std::thread first(firstThread, std::ref(theQuestion));     // spawn new thread that calls foo()
 	std::thread second(secondThread, std::ref(theQuestion));  // spawn new thread that calls bar(0)
-	
+
 	//LockingSharedObject< int > theAnswser(answer);
-	
+
 	std::cout << "Initialized first shared object" << std::endl;
-	
+
 	first.join();                // pauses until first finishes
 	second.join();               // pauses until second finishes
 

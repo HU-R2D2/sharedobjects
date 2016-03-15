@@ -13,8 +13,7 @@ public:
 	{
 	}
 
-	void claim() override
-	{
+	void claim() override {
 		lock_object.lock();
 		std::cout << "Object is currently claimed. " << std::endl;
 	}

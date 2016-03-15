@@ -12,8 +12,7 @@ public:
 	{
 	}
 
-	void claim() override
-	{
+	void claim() override {
 		lock_object.lock();
 	}
 
