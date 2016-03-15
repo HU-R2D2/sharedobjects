@@ -15,11 +15,13 @@ public:
 
 	void claim() override
 	{
-		std::cout << "Object is currently claimed. "
+		lock_object.lock();
+		std::cout << "Object is currently claimed. " << std::endl;
 	}
 
 	void release() override {
-		std::cout << "Object is currently unlocked. "
+		lock_object.unlock();
+		std::cout << "Object is currently unlocked. " << std::endl;
 	}
 
 private:

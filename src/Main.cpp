@@ -1,42 +1,66 @@
 #include <stdio.h>
 #include <iostream>
 #include "LockingSharedObject.hpp"
+#include "LoggingSharedObject.hpp"
 #include <thread> 
+#include <sstream>
+#include <chrono>
 
-void firstThread()
+static int times = 1000 * 1000;
+
+void firstThread(SharedObject<int>& obj)
 {
-	// do stuff...
+	for (int i = 0; i < times; ++i) {
+		Accessor<int> a(obj);
+		int& b = a.access();
+		++b;
+		int c;
+	}
+	std::stringstream ss;
+	ss << "#1: " << Accessor<int>(obj).access() << std::endl;
+	std::cout << ss.str();
 }
 
-void secondThread(int x)
+void secondThread(SharedObject<int>& obj)
 {
-	// do stuff...
+	for (int i = 0; i < times; ++i) {
+		Accessor<int> a(obj);
+		int& b = a.access();
+		b -= 2;
+		int c;
+	}
+	std::stringstream ss;
+	ss << "#2: " << Accessor<int>(obj).access() << std::endl;
+	std::cout << ss.str();
 }
 
 
 int main()
 {
-	printf("This is project SharedObjects");
-	
-	std::thread first(firstThread);     // spawn new thread that calls foo()
-	std::thread second(secondThread, 0);  // spawn new thread that calls bar(0)
+	std::cout << "This is project SharedObjects" << std::endl;
+	int a = 1;
+	LockingSharedObject<int> theQuestion(a);	
 
+	typedef std::chrono::microseconds t_stamp;
 
+	t_stamp time_start = std::chrono::duration_cast<t_stamp>(std::chrono::high_resolution_clock::now().time_since_epoch());
 
-	int question = 1;
-	int answer = 1;
-
-	LockingSharedObject<int> theQuestion(question);
+	std::thread first(firstThread, std::ref(theQuestion));     // spawn new thread that calls foo()
+	std::thread second(secondThread, std::ref(theQuestion));  // spawn new thread that calls bar(0)
 	
 	//LockingSharedObject< int > theAnswser(answer);
 	
-	printf("Initialized first shared object");
+	std::cout << "Initialized first shared object" << std::endl;
 	
 	first.join();                // pauses until first finishes
 	second.join();               // pauses until second finishes
 
+	std::cout << "Time (us): " << ((std::chrono::duration_cast<t_stamp>(std::chrono::high_resolution_clock::now().time_since_epoch() - time_start).count())) << std::endl;
+
+	std::cout << std::boolalpha << "Testing: " << (a == 1 - times) << std::endl;
+
 	std::cout << "foo and bar completed.\n";
 
-	while (true);
+	std::cin.get();
     return 0;
 }
