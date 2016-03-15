@@ -29,7 +29,7 @@ public:
 	T& access() { return so.data; }
 
 private:
-	SharedObject& so;
+	SharedObject<T>& so;
 };
 
 #endif
