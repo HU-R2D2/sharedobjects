@@ -19,3 +19,5 @@ A: Claim
 B: Access
 A: Release
 B: Access
+
+check for changes in the object
