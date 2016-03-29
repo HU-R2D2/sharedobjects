@@ -9,7 +9,7 @@ template<typename T>
 class LoggingSharedObject : public SharedObject<T> {
 public:
 	LoggingSharedObject(T& data_input) :
-		SharedObject(data_input)
+		SharedObject<T>(data_input)
 	{
 	}
 
