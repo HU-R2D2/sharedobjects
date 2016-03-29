@@ -10,25 +10,25 @@ static int times = 1000 * 1000;
 
 void firstThread(SharedObject<int>& obj){
 	for (int i = 0; i < times; ++i) {
-		Accessor<int> a(obj);
+		SharedObject<int>::Accessor a(obj);
 		int& b = a.access();
 		++b;
 		int c;
 	}
 	std::stringstream ss;
-	ss << "#1: " << Accessor<int>(obj).access() << std::endl;
+	ss << "#1: " << SharedObject<int>::Accessor(obj).access() << std::endl;
 	std::cout << ss.str();
 }
 
 void secondThread(SharedObject<int>& obj){
 	for (int i = 0; i < times; ++i) {
-		Accessor<int> a(obj);
+		SharedObject<int>::Accessor a(obj);
 		int& b = a.access();
 		b -= 2;
 		int c;
 	}
 	std::stringstream ss;
-	ss << "#2: " << Accessor<int>(obj).access() << std::endl;
+	ss << "#2: " << SharedObject<int>::Accessor(obj).access() << std::endl;
 	std::cout << ss.str();
 }
 
