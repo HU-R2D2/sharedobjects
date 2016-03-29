@@ -12,7 +12,7 @@ public:
 
 protected:
 	T& data; // SharedData only accesible by Accessor
-	friend class Accessor;
+	template <typename T> friend class Accessor;
 
 	virtual void claim() = 0;
 	virtual void release() = 0;
