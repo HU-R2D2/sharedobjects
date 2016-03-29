@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream>
-#include "LockingSharedObject.hpp"
-#include "LoggingSharedObject.hpp"
+#include "../include/LockingSharedObject.hpp"
+#include "../include/LoggingSharedObject.hpp"
 #include <thread>
 #include <sstream>
 #include <chrono>
