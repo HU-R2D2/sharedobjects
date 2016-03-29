@@ -1,0 +1,23 @@
+Checking if claiming works
+
+A: Access
+B: Access
+A: Claim
+A: Access
+B: Access
+
+Check if you can't claim the same object
+
+A: Claim
+B: Claim
+A: Access
+B: Access
+
+Check if releasing works:
+
+A: Claim
+B: Access
+A: Release
+B: Access
+
+check for changes in the object
