@@ -4,7 +4,7 @@
 
 class NotCopyable {
 protected:
-   constexpr NotCopyable() = default;
+   NotCopyable() = default;
     ~NotCopyable() = default;
 
    NotCopyable( const NotCopyable& ) = delete;

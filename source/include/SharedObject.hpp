@@ -8,11 +8,11 @@ class SharedObject : public NotCopyable {
 public:
 	SharedObject(T & data_input) : data(data_input) {}
 
-	
+
 
 protected:
 	T& data; // SharedData only accesible by Accessor
-	template<typename T> friend class Accessor;
+	friend class Accessor;
 
 	virtual void claim() = 0;
 	virtual void release() = 0;
