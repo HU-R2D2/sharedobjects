@@ -8,7 +8,7 @@ template<typename T>
 class LockingSharedObject : public SharedObject<T> {
 public:
 	LockingSharedObject(T& data_input) :
-		SharedObject(data_input)
+		SharedObject<T>(data_input)
 	{
 	}
 
