@@ -16,7 +16,6 @@ void PassAccessorThread(SharedObject<int>::Accessor& acc){
   ASSERT_EQ(1, acc.access());
 }
 
-
 TEST(LockingSharedObject, TestAccessor){
   int a = 1;
   LockingSharedObject<int> testing(a);
@@ -32,4 +31,16 @@ TEST(LockingSharedObject, TestPassAccessor){
   SharedObject<int>::Accessor acc(testing);
   std::thread first(PassAccessorThread, std::ref(acc));
   first.join();
+}
+
+TEST(LockingSharedObject, ChangeObjectValue){
+  int start = 1;
+  int end = 5;
+  LockingSharedObject<int> testing(start);
+  SharedObject<int>::Accessor acc(testing);
+  ASSERT_EQ(1, acc.access());
+  acc.access() = 2;
+  ASSERT_EQ(2, acc.access());
+  acc.access() = 59;
+  ASSERT_EQ(59, acc.access());
 }

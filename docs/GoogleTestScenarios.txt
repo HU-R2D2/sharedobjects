@@ -1,9 +1,3 @@
-Checking if claiming works
-both: Create accessor and release.
-both: access
-A: claim
-B: access
-
 
 Check if you can't claim the same object
 A and B are both threads which try to create an accessor and claim the same object.
@@ -11,11 +5,15 @@ A and B are both threads which try to create an accessor and claim the same obje
 A: Claim    B: Claim
 A: Access   B: Access
 
-Check if releasing works:
+Change value of a LockingSharedObject:
 
-A: Claim
-B: Access
-A: Release
-B: Access
+Create LockingSharedObject
+create SharedObject::Accessor of the LockingSharedObject
+Change the value of the LockingSharedObject by accessing the object and assigning a new value using '='
 
-check for changes in the object
+Pass on an Accessor to a thread to test if it can access it:
+
+Create LockingSharedObject
+create SharedObject::Accessor of the LockingSharedObject
+create thread and pass the accessor to it
+thread access the passed Accessor
