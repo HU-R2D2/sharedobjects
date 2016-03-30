@@ -35,7 +35,6 @@ TEST(LockingSharedObject, TestPassAccessor){
 
 TEST(LockingSharedObject, ChangeObjectValue){
   int start = 1;
-  int end = 5;
   LockingSharedObject<int> testing(start);
   SharedObject<int>::Accessor acc(testing);
   ASSERT_EQ(1, acc.access());
