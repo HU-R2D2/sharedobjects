@@ -1,34 +1,35 @@
 #include "gtest/gtest.h"
 #include "../source/include/LockingSharedObject.hpp"
 #include <thread>
-#include <exception>
 
-void firstThread(LockingSharedObject<int>& obj){
-  std::cout <<"Thread 1 access start" << std::endl;
+void AccessThreadOne(LockingSharedObject<int>& obj){
   SharedObject<int>::Accessor acc(obj);
-  std::cout <<"Thread 1 access done" << std::endl;
-  ASSERT_EQ(1,1);
-  std::cout << "thread 1: " << acc.access() << std::endl;
+  ASSERT_EQ(1,acc.access());
 }
 
-void secondThread(LockingSharedObject<int> & obj){
-std::cout <<"Thread 2 access start" << std::endl;
+void AccessThreadTwo(LockingSharedObject<int> & obj){
   SharedObject<int>::Accessor acc(obj);
-  std::cout <<"Thread 2 access done" << std::endl;
-
-  ASSERT_EQ(1,1);
-  std::cout << "thread 2: " << acc.access() << std::endl;
+  ASSERT_EQ(1,acc.access());
 }
 
-TEST(LockingSharedObject, TestAccess){
+void PassAccessorThread(SharedObject<int>::Accessor& acc){
+  ASSERT_EQ(1, acc.access());
+}
+
+
+TEST(LockingSharedObject, TestAccessor){
   int a = 1;
   LockingSharedObject<int> testing(a);
-  std::thread first(firstThread, std::ref(testing));
-  std::thread second(secondThread, std::ref(testing));
-
+  std::thread first(AccessThreadOne, std::ref(testing));
+  std::thread second(AccessThreadTwo, std::ref(testing));
   first.join();
   second.join();
-  ASSERT_EQ(1,1);
-  std::cout << "DONE" << std::endl;
+}
 
+TEST(LockingSharedObject, TestPassAccessor){
+  int a = 1;
+  LockingSharedObject<int> testing(a);
+  SharedObject<int>::Accessor acc(testing);
+  std::thread first(PassAccessorThread, std::ref(acc));
+  first.join();
 }

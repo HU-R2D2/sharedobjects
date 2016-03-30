@@ -1,17 +1,15 @@
 Checking if claiming works
+both: Create accessor and release.
+both: access
+A: claim
+B: access
 
-A: Access
-B: Access
-A: Claim
-A: Access
-B: Access
 
 Check if you can't claim the same object
+A and B are both threads which try to create an accessor and claim the same object.
 
-A: Claim
-B: Claim
-A: Access
-B: Access
+A: Claim    B: Claim
+A: Access   B: Access
 
 Check if releasing works:
 
