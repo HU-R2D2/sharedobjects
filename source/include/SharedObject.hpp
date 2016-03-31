@@ -11,6 +11,7 @@
 template<typename T>
 class SharedObject : public NotCopyable {
 public:
+
    /// Creates a SharedObject containing a reference to specified data.
    /// \param data_input The data to reference to.
    SharedObject(T & data_input) : data(data_input) {}
