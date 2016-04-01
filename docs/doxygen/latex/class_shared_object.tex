@@ -1,0 +1,77 @@
+\hypertarget{class_shared_object}{}\section{Shared\+Object$<$ T $>$ Class Template Reference}
+\label{class_shared_object}\index{Shared\+Object$<$ T $>$@{Shared\+Object$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Shared\+Object.\+hpp$>$}
+
+Inheritance diagram for Shared\+Object$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_shared_object}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_shared_object_1_1_accessor}{Accessor}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_shared_object_a15d662bd0c54b318c9c54a46b7a85067}{Shared\+Object} (T \&data\+\_\+input)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_shared_object_a99c0307d7bfadbc055b22511abc68eeb}{}virtual void \hyperlink{class_shared_object_a99c0307d7bfadbc055b22511abc68eeb}{claim} ()=0\label{class_shared_object_a99c0307d7bfadbc055b22511abc68eeb}
+
+\begin{DoxyCompactList}\small\item\em Claims the data of the \hyperlink{class_shared_object}{Shared\+Object}. \end{DoxyCompactList}\item 
+\hypertarget{class_shared_object_a46035f8deebe492cff681d3b33dd98b1}{}virtual void \hyperlink{class_shared_object_a46035f8deebe492cff681d3b33dd98b1}{release} ()=0\label{class_shared_object_a46035f8deebe492cff681d3b33dd98b1}
+
+\begin{DoxyCompactList}\small\item\em Releases the claim on the data of the \hyperlink{class_shared_object}{Shared\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_shared_object_a96eabb0f3550dbfa112caf68e310ffb1}{}T \& {\bfseries data}\label{class_shared_object_a96eabb0f3550dbfa112caf68e310ffb1}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_shared_object_ab4a12da86029f678a2567e5020e18024}{}class {\bfseries Accessor}\label{class_shared_object_ab4a12da86029f678a2567e5020e18024}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class Shared\+Object$<$ T $>$}
+
+Allows for mutual exclusion of specified objects of type T. Can be extended for advanced mutual exclusion. \begin{DoxyAuthor}{Authors}
+Alexander Freeman, Koen van der Kruk, Remco Ruttenberg 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+29-\/03-\/2016 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_shared_object_a15d662bd0c54b318c9c54a46b7a85067}{}\index{Shared\+Object@{Shared\+Object}!Shared\+Object@{Shared\+Object}}
+\index{Shared\+Object@{Shared\+Object}!Shared\+Object@{Shared\+Object}}
+\subsubsection[{Shared\+Object}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Shared\+Object}$<$ T $>$\+::{\bf Shared\+Object} (
+\begin{DoxyParamCaption}
+\item[{T \&}]{data\+\_\+input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_shared_object_a15d662bd0c54b318c9c54a46b7a85067}
+Creates a \hyperlink{class_shared_object}{Shared\+Object} containing a reference to specified data. 
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+input} & The data to reference to. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/cygwin\+\_\+test/sharedobjects/source/include/Shared\+Object.\+hpp\end{DoxyCompactItemize}

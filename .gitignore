@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/c++,c,visualstudio,jetbrains,linux,osx,sublimetext,vim,windows
 
+##Koen VisualStudio Project directory:
+SharedObjects_vsstudio/
+
 ### C++ ###
 # Compiled Object files
 *.slo
@@ -88,6 +91,7 @@
 x64/
 x86/
 bld/
+build/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
@@ -208,7 +212,7 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-# TODO: Comment the next line if you want to checkin your web deploy settings 
+# TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
@@ -259,7 +263,7 @@ ClientBin/
 node_modules/
 orleans.codegen.cs
 
-# Since there are multiple workflows, uncomment next line to ignore bower_components 
+# Since there are multiple workflows, uncomment next line to ignore bower_components
 # (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
 #bower_components/
 
@@ -454,3 +458,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+### CMake ###
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Makefile
+cmake_install.cmake
+install_manifest.txt

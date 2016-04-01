@@ -1,0 +1,64 @@
+\hypertarget{class_logging_shared_object}{}\section{Logging\+Shared\+Object$<$ T $>$ Class Template Reference}
+\label{class_logging_shared_object}\index{Logging\+Shared\+Object$<$ T $>$@{Logging\+Shared\+Object$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Logging\+Shared\+Object.\+hpp$>$}
+
+Inheritance diagram for Logging\+Shared\+Object$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_logging_shared_object}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_logging_shared_object_a8cd7a5f32d233c349638f46b2dfc2ac0}{Logging\+Shared\+Object} (T \&data\+\_\+input)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_logging_shared_object_a1b92e112cefa988dc857dfa2157f3da5}{}void \hyperlink{class_logging_shared_object_a1b92e112cefa988dc857dfa2157f3da5}{claim} () override\label{class_logging_shared_object_a1b92e112cefa988dc857dfa2157f3da5}
+
+\begin{DoxyCompactList}\small\item\em This will claim the current object and it\textquotesingle{}s data. This will also print out when the object is currently claimed. \end{DoxyCompactList}\item 
+\hypertarget{class_logging_shared_object_af01b8494abe27d86d656d0c968037001}{}void \hyperlink{class_logging_shared_object_af01b8494abe27d86d656d0c968037001}{release} () override\label{class_logging_shared_object_af01b8494abe27d86d656d0c968037001}
+
+\begin{DoxyCompactList}\small\item\em This will release the current object and it\textquotesingle{}s data. This will also print out when the object is currently released. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$class Logging\+Shared\+Object$<$ T $>$}
+
+Class \hyperlink{class_logging_shared_object}{Logging\+Shared\+Object} This class is used to log when an object is claimed and released. \begin{DoxyAuthor}{Authors}
+Koen van der Kruk 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+31-\/3-\/2016 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_logging_shared_object_a8cd7a5f32d233c349638f46b2dfc2ac0}{}\index{Logging\+Shared\+Object@{Logging\+Shared\+Object}!Logging\+Shared\+Object@{Logging\+Shared\+Object}}
+\index{Logging\+Shared\+Object@{Logging\+Shared\+Object}!Logging\+Shared\+Object@{Logging\+Shared\+Object}}
+\subsubsection[{Logging\+Shared\+Object}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Logging\+Shared\+Object}$<$ T $>$\+::{\bf Logging\+Shared\+Object} (
+\begin{DoxyParamCaption}
+\item[{T \&}]{data\+\_\+input}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_logging_shared_object_a8cd7a5f32d233c349638f46b2dfc2ac0}
+Constructs the Loggin\+Shared\+Object with data as input 
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+input} & The input data the loggingsharedobject can use to lock and unlock \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \hyperlink{class_logging_shared_object}{Logging\+Shared\+Object} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/koen/\+Documents/\+Git\+Hub/cygwin\+\_\+test/sharedobjects/source/include/Logging\+Shared\+Object.\+hpp\end{DoxyCompactItemize}
