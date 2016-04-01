@@ -14,7 +14,7 @@ template<typename T>
 class LoggingSharedObject : public SharedObject<T> {
 public:
 
-	/// Constructs the LogginSharedObject with data as input
+	/// Constructs the LoggingSharedObject with data as input
 	/// \param data_input The input data the loggingsharedobject can use to lock and unlock
 	/// \return A new LoggingSharedObject
 	LoggingSharedObject(T& data_input) :
