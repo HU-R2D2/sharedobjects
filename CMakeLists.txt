@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.9)
 project(sharedobjects)
 find_package (Threads)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x -W -O3 -lpthread -Wextra -Wall -Werror -pedantic -pthread ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x -W -O3 -lpthread -Wall -Werror -pedantic -pthread ")
 
 file(GLOB SOURCES "source/include/*.hpp")
 file(GLOB SOURCES_GTEST "source/include/*.hpp" "test/*.cpp" "test/*.hpp")
